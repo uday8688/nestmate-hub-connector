@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -45,7 +45,7 @@ const Signup = () => {
   const watchedRole = watch("role");
 
   // Update password strength
-  useState(() => {
+  useEffect(() => {
     if (watchedPassword) {
       setPasswordStrength(getPasswordStrength(watchedPassword));
     }
